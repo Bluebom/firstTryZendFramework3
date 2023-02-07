@@ -1,0 +1,16 @@
+<?php
+$title = "Adicionar nova pessoa";
+$this->headTitle($title);
+?>
+<h3><?= $this->escapeHtml($title)?></h3>
+<p>
+    Você deseja realmente excluir <?= $this->escapeHtml($pessoa->nome)?>
+</p>
+
+<form method="POST" action="<?= $this->url('pessoa', ['action' => 'remover', 'id' => $id]) ?>">
+    <div class="form-group">
+        <input type="hidden" name="id"  value="<?= $id?>"/>
+        <input type="submit" name="del" class="btn btn-danger"  value="Sim"/>
+        <input type="submit" name="del" class="btn btn-secondary"  value="Não"/>
+    </div>
+</form>

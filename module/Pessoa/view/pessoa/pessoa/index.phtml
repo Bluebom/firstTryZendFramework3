@@ -1,0 +1,33 @@
+<h1>Minha view do controller pessoa do módulo Pessoa</h1>
+<div class="text-right">
+    <a href="<?= $this->url('pessoa', ['action' => 'adicionar']) ?>" class="btn btn-success my-2">+ Adicionar</a>
+</div>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>E-mail</th>
+        <th>Situação</th>
+        <th>Ação</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($pessoas as $pessoa) { ?>
+        <tr>
+            <td><?= $pessoa->getId() ?></td>
+            <td><?= $pessoa->getNome() ?></td>
+            <td><?= $pessoa->getSobrenome() ?></td>
+            <td><?= $pessoa->getEmail() ?></td>
+            <td><?= $pessoa->getSituacao() ?></td>
+            <td>
+                <a class="btn btn-sm btn-primary small"
+                   href="<?= $this->url('pessoa', ['action' => 'editar', 'id' => $pessoa->getId()]) ?>">Editar</a>
+                <a class="btn btn-sm btn-danger small"
+                   href="<?= $this->url('pessoa', ['action' => 'remover', 'id' => $pessoa->getId()]) ?>">Excluir</a>
+            </td>
+        </tr>
+    <?php } ?>
+    </tbody>
+</table>
